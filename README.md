@@ -17,7 +17,7 @@ This project is a simple task management application that allows users to regist
 
 ## Prerequisites
 
-- Python 3.8+
+- Python 3.11+
 - Docker (for running MongoDB)
 - Git
 
@@ -25,7 +25,7 @@ This project is a simple task management application that allows users to regist
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/yourusername/task-manager.git
+   git clone git@github.com:ameyer117/FastAPI_TaskManager.git
    cd task-manager
    ```
 
