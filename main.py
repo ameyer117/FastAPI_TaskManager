@@ -24,7 +24,7 @@ tasks_collection = db["tasks"]
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 # JWT settings
-SECRET_KEY = os.urandom(32)
+SECRET_KEY = os.urandom(32) # Generate a random secret key
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
