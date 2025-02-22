@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Task Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+        <h1 class="text-2xl font-bold mb-4">Register</h1>
+        <form id="register-form" class="space-y-4">
+            <input type="text" name="username" placeholder="Username" class="w-full border p-2 rounded" required>
+            <input type="password" name="password" placeholder="Password" class="w-full border p-2 rounded" required>
+            <button type="submit" class="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600">Register</button>
+        </form>
+        <p class="mt-2 text-center">Already have an account? <a href="/" class="text-blue-500">Login</a></p>
+    </div>
+    <script>
+        document.getElementById('register-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const user = {
+                username: formData.get('username'),
+                password: formData.get('password')
+            };
+            const response = await fetch('/api/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(user)
+            });
+            if (response.ok) {
+                alert('Registration successful! Please login.');
+                window.location.href = '/';
+            } else {
+                alert('Username already exists');
+            }
+        });
+    </script>
+</body>
+</html>
